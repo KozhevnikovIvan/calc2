@@ -75,41 +75,41 @@ int main(int argc, char *argv[]) {
 			if (cin.good()) {
 				switch ((char)x[0][0]) {
 				case '+':
-					pluss(x,y);
+					pluss(a,b);
 					break;
 				case '-':
-					minuss(x,y);
+					minuss(a,b);
 					break;
 				case '*':
-					umn(x,y);
+					umn(a,b);
 					break;
 				case '/':
-				deli(x,y);
+				deli(a,y);
 					break;
 				case '%':
-				fun1(x,y);
+				fun1(a,b);
 					break;
 				case '^':
-			        fun2(x,y);
+			        fun2(a,b);
 					break;
 				case'!':
-			fun3(x,y);
+			fun3(a,b);
 			break;
 
 		case'&':
-			fun4(x,y);
+			fun4(a,b);
 			break;
 
 		case'|':
-			fun5(x,y);
+			fun5(a,b);
 			break;
 
 		case'<':
-			fun6(x,y);
+			fun6(a,b);
 			break;
 
 		case'>':
-			fun7(x,y);
+			fun7(a,b);
 			break;
 		default:
 			cout << "Ошибка"<< endl;
