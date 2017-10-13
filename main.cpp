@@ -29,7 +29,7 @@ void fun1(int a, int b)
 }
 void fun2(int a, int b)
 {
-	cout << "Рузультат:" << pow(a , b) << endl;
+	cout << "Рузультат:" << pow(a,b)<<endl;
 }
 void fun3(int a)
 {
