@@ -75,66 +75,47 @@ int main(int argc, char *argv[]) {
 			if (cin.good()) {
 				switch ((char)x[0][0]) {
 				case '+':
-					cout << "Сумма:" << (a + b) << endl;
+					pluss(x,y);
 					break;
 				case '-':
-					cout << "Разность:" << (a - b) << endl;
+					minuss(x,y);
 					break;
 				case '*':
-					cout << "Произведение:" << (a * b) << endl;
+					umn(x,y);
 					break;
 				case '/':
-					if (b != 0)
-						cout << "Частное:" << (double)a / (double)b << endl;
-					else
-						cerr << "Ошибка: на 0 делить нельзя!" << endl;
+				deli(x,y);
 					break;
 				case '%':
-					cout << "Модуль:" << (a % b) << endl;
+				fun1(x,y);
 					break;
 				case '^':
-					for (int i = 0, j = a; i < b - 1; i++) a *= j;
-					cout << "Возведение в степень:" << a << endl;
+			        fun2(x,y);
 					break;
-				case '&':
-					cout << "Побитовая И:" << (a & b) << endl;
-					break;
-				case '<':
-					if (b >= 0)
-						cout << "Побитовый сдвиг влево:" << (a << b)
-						<< endl;
-					else
-						cerr << "Некорректные данные" << endl;
-					break;
-				case '>':
-					if (b >= 0)
-						cout << "Побитовый сдвиг вправо:" << (a >> b)
-						<< endl;
-					else
-						cerr << "Некорректные данные" << endl;
-					break;
-				case '|':
-					cout << "Побитовое ИЛИ:" << (a | b) << endl;
-					break;
-				default:
-				}
-			}
-			else {
-				cin.ignore();
-				cin.clear();
-				cout << "Некорректные данные" << endl;
-			}
+				case'!':
+			fun3(x,y);
+			break;
+
+		case'&':
+			fun4(x,y);
+			break;
+
+		case'|':
+			fun5(x,y);
+			break;
+
+		case'<':
+			fun6(x,y);
+			break;
+
+		case'>':
+			fun7(x,y);
+			break;
+		default:
+			cout << "Ошибка"<< endl;
+
 		}
-		if (x[0][0] == '!') {
-			cout << "Введите пожалуйста число:" << endl;
-			cin >> a;
-			switch ((char)x[0][0]) {
-			case '!':
-				cout << (!a) << endl;
-				break;
-			default:
-				cerr << "Ошибка" << endl;
-			}
+
 		}
 		do {
 			cout << "Если вы хотите продолжить, введите y, если закончить - n"
