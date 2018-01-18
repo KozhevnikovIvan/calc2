@@ -1,129 +1,115 @@
 #include <iostream>
-#include <math>
+#include <stdlib.h>
+#include <cmath>
 
 using namespace std;
 
-int a, b;
-    
-void pluss(int a, int b)
-{
-	cout << "Рузультат:" << a + b << endl;
-}
-void minuss(int a, int b)
-{
-	cout << "Рузультат:" << a - b << endl;
-}
-void umn(int a, int b)
-{
-	cout << "Рузультат:" << a * b << endl;
-}
-void deli(int a, int b)
-{
-	if (b != 0)
-		cout << "Рузультат:" << a / b << endl;
-	else
-		cout << "На 0 делить нельзя!";
-}
-void fun1(int a, int b)
-{
-	cout << "Рузультат:" << a % b << endl;
-}
-void fun2(int a, int b)
-{
-	cout << "Рузультат:" << pow(a,b)<<endl;
-}
-void fun3(int a)
-{
-	cout << "Рузультат:" << !a << endl;
-}
-void fun4(int a, int b)
-{
-	cout << "Рузультат:" << a & b << endl;
-}
-void fun5(int a, int b)
-{
-	cout << "Рузультат:" << a | b << endl;
-}
-void fun6(int a)
-{ 
-	cout << "Рузультат:" << a < 1 << endl;
-}
-void fun7(int a)
-{
-	cout << "Рузультат:" << a > 1 << endl;
-}
-int a, b;
-int main(int argc, char *argv[]) {
-	char choice[1][1];
-	choice[0][0] = 'b';
-	while ((char)choice[0][0] == 'b') {
-		char x[1][1];
-		do {
-			cout << "Выбирите одну из операций[+.-.*,/,%,^,!,&,|,<,>]:"
-				<< endl;
-			cin >> *x;
-		} while (x[0][0] != '+' && x[0][0] != '-' && x[0][0] != '*' &&
-			x[0][0] != '/' && x[0][0] != '%' && x[0][0] != '^' &&
-			x[0][0] != '!' && x[0][0] != '&' && x[0][0] != '|' &&
-			x[0][0] != '<' && x[0][0] != '>');
-		if (x[0][0] == '+' || x[0][0] == '-' || x[0][0] == '*' || x[0][0] == '/' ||
-			x[0][0] == '%' || x[0][0] == '^' || x[0][0] == '>' || x[0][0] == '<' ||
-			x[0][0] == '|' || x[0][0] == '&') {
-			cout << "Введите первое число:" << endl;
-			cin >> a;
-			cout << "Введите второе число:" << endl;
-			cin >> b;
-			if (cin.good()) {
-				switch ((char)x[0][0]) {
-				case '+':
-					pluss(a,b);
-					break;
-				case '-':
-					minuss(a,b);
-					break;
-				case '*':
-					umn(a,b);
-					break;
-				case '/':
-				deli(a,y);
-					break;
-				case '%':
-				fun1(a,b);
-					break;
-				case '^':
-			        fun2(a,b);
-					break;
-				case'!':
-			fun3(a,b);
-			break;
+int add(int x, int y) { return (x + y); }
 
-		case'&':
-			fun4(a,b);
-			break;
+int sub(int x, int y) { return (x - y); }
 
-		case'|':
-			fun5(a,b);
-			break;
+int mul(int x, int y) { return (x * y); }
 
-		case'<':
-			fun6(a,b);
-			break;
+double div1(double x, double y) { return (x / y); }
 
-		case'>':
-			fun7(a,b);
-			break;
-		default:
-			cout << "Ошибка"<< endl;
+int and1(int x, int y) { return (x && y); }
 
-		}
+int pow1(int x, int y) { return (pow(x, y)); }
 
-		}
-		do {
-			cout << "Если вы хотите продолжить, введите y, если закончить - n"
-				<< endl;
-			cin >> *choice;
-		} while ((char)choice[0][0] != 'y' && (char)choice[0][0] != 'n');
-	}
-	cout << "До свидания!" << endl;
-	return 0;
+int or1(int x, int y) { return (x || y); }
+
+int rol(int x, int y) { return (x << y); }
+
+int ror(int x, int y) { return (x >> y); }
+
+int not1(int x) { return (!x); }
+
+double mod(int x, int y, int m) { return ((x - y) % m); }
+
+int main() {
+  int x, y;
+  char d;
+  while (true) {
+    cout << "\n\nВыберите операцию:\n +, -, *, /, &, |, ^ , <, >, !, %\n";
+    cin >> d;
+    bool i =
+        (d == '+' || d == '-' || d == '*' || d == '/' || d == '&' || d == '|' ||
+         d == '^' || d == '<' || d == '>' || d == '!' || d == '%');
+    if (i == 1) {
+      cout << ("Первый элемент:\t");
+      cin >> (x);
+      if (d != '!') {
+        cout << ("Второй элемент:\t");
+        cin >> (y);
+      }
+      bool j = (x >= -2147483648 && x <= 2147483647 && y >= -2147483648 &&
+                y <= 2147483647);
+      if (j == 1) {
+        switch (d) {
+          case '+': {
+            cout << x << "+" << y << "=" << add(x, y);
+            break;
+          }
+          case '-': {
+            cout << x << "-" << y << "=" << sub(x, y);
+            break;
+          }
+          case '*': {
+            cout << x << "*" << y << "=" << mul(x, y);
+            break;
+          }
+          case '/': {
+            if (y == 0)
+              cerr << "err: you can't divide by zero";
+            else
+              cout << x << "/" << y << "=" << div1(x, y);
+            break;
+          }
+          case '&': {
+            cout << x << "&" << y << "=" << and1(x, y);
+            break;
+          }
+          case '^': {
+            cout << x << "^" << y << "=" << pow1(x, y);
+            break;
+          }
+          case '|': {
+            cout << x << "|" << y << "=" << or1(x, y);
+            break;
+          }
+          case '<': {
+            if (y >= 0)
+              cout << x << "<" << y << "=" << rol(x, y);
+            else
+              cerr << "err";
+            break;
+          }
+          case '>': {
+            if (y >= 0)
+              cout << x << ">" << y << "=" << ror(x, y);
+            else
+              cerr << "err";
+            break;
+          }
+          case '!': {
+            cout << x << "!\t=" << not1(x);
+            break;
+          }
+          case '%': {
+            int m;
+            cout << "Введите модуль";
+            cin >> m;
+            cout << x << "-%" << y << "=" << mod(x, y, m);
+            break;
+          }
+          default:
+            cerr << "err";
+        }
+      } else
+        cerr << "err";
+    } else
+      cerr << "err";
+  }
+
+  return 0;
 }
